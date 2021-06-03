@@ -22,7 +22,10 @@ function App() {
       <header className="App-header">
         <Text variant="large">ToDo List</Text>
         <br />
-        <TextField name="newElement" label="Task Name" placeholder="Add a new task to do" onChange={onChange}/>
+        <TextField 
+        name="newElement" 
+                   label="Task Name" 
+                   placeholder="Add a new task to do" onChange={onChange}/>
         <DefaultButton text="Add new element" onClick={clickFunction} />
       </header>
     </div>
