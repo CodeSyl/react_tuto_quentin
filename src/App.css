@@ -14,8 +14,8 @@
 }
 
 .App-header {
-  background-color: #417ffd;
-  min-height: 100vh;
+  background-color: lightblue;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+.Title {
+  height: 150px;
+  width: 1000px;
+  border-style: dashed;
+  border-radius: 15px;
+}
+
+.To-Do-Elements {
+  height: 350px;
+  width: 350px;
+  border-color: rgb(0, 140, 255);
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.New-element-input .ms-TextField-fieldGroup {
+  border-radius: 5px;
+  width: 350px;
+}
+
+.New-element-input .ms-Label {
+  text-align: left;
+  font-size: small;
+}
+
+.Add-new-element {
+  border-radius: 5px;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
