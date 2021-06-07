@@ -1,52 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Text, ITextProps } from "@fluentui/react/lib/Text";
 import { DefaultButton, IconButton, TextField } from "@fluentui/react";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import ToDoTasks from "./ToDoTasks";
+import { GlobalContext } from "./infrastructure/GlobalContext";
 initializeIcons();
 
 function App() {
-  const [newElement, setNewElement] = useState<string>("");
-  const [newList, setNewList] = useState<string[]>([]);
-
-  useEffect(() => {
-    console.log("init");
-    setNewList(["test", "test1", "test2", "test3", "test4"]);
-  }, []);
-
-  useEffect(() => {
-    console.log(newElement);
-  }, [newElement]);
-
-  const clickFunction = (event: any) => {
-    const updatedList = [...newList, newElement];
-
-    setNewList(updatedList);
-    setNewElement("");
-  };
-
-  const onChange = (event: any) => {
-    setNewElement(event.target.value);
-  };
-
-  const deleteElement = (index: number) => {
-    //contentList.splice(index, 1);
-
-    setNewList((prevState) => {
-      const filter: string[] = prevState.filter(
-        (element, filterIndex) => index !== filterIndex
-      );
-      console.log(filter);
-      return filter;
-
-      // let contentList: string[] = [...prevState];
-      // contentList.splice(index, 1);
-      // return contentList;
-    });
-  };
-
+  const { newElement, newList, onChange, onClick, deleteElement }: any =
+    useContext(GlobalContext);
   return (
     <div className="App">
       <header className="App-header">
@@ -68,7 +32,7 @@ function App() {
           <DefaultButton
             className="Add-new-element"
             text="Add"
-            onClick={clickFunction}
+            onClick={onClick}
           />
         </div>
         <br />
