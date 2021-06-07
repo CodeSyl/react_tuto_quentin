@@ -5,12 +5,14 @@ import App from "./App";
 import TopBar from "./TopBar";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalProvider } from "./infrastructure/GlobalContext";
+import Footer from "./Footer";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalProvider>
       <TopBar />
       <App />
+      <Footer />
     </GlobalProvider>
   </React.StrictMode>,
   document.getElementById("root")

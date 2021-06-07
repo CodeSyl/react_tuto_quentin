@@ -6,11 +6,18 @@ import { DefaultButton, IconButton, TextField } from "@fluentui/react";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import ToDoTasks from "./ToDoTasks";
 import { GlobalContext } from "./infrastructure/GlobalContext";
+import ConfirmDeletion from "./ConfirmDeletion";
 initializeIcons();
 
 function App() {
-  const { newElement, newList, onChange, onClick, deleteElement }: any =
-    useContext(GlobalContext);
+  const {
+    newElement,
+    newList,
+    onChange,
+    onClick,
+    deleteElement,
+    setHiddenDialog,
+  }: any = useContext(GlobalContext);
   return (
     <div className="App">
       <header className="App-header">
@@ -51,6 +58,7 @@ function App() {
           </div>
         </div>
       </section>
+      <ConfirmDeletion></ConfirmDeletion>
     </div>
   );
 }

@@ -5,6 +5,9 @@ export const GlobalContext = createContext({});
 export const GlobalProvider = ({ children }: any) => {
   const [newElement, setNewElement] = useState<string>("");
   const [newList, setNewList] = useState<string[]>([]);
+  const [hiddenDialog, setHiddenDialog] = useState<boolean>(true);
+  const [selectedElementToDelete, setSelectedElementToDelete] =
+    useState<number>();
 
   useEffect(() => {
     console.log("init");
@@ -40,10 +43,32 @@ export const GlobalProvider = ({ children }: any) => {
       // contentList.splice(index, 1);
       // return contentList;
     });
+    cancelDeletion();
   };
+
+  const confirmDeletion = (index: number) => {
+    setHiddenDialog(false);
+    setSelectedElementToDelete(index);
+  };
+
+  const cancelDeletion = () => {
+    setHiddenDialog(true);
+    setSelectedElementToDelete(undefined);
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ newElement, newList, onChange, onClick, deleteElement }}
+      value={{
+        newElement,
+        newList,
+        onChange,
+        onClick,
+        deleteElement,
+        hiddenDialog,
+        confirmDeletion,
+        selectedElementToDelete,
+        cancelDeletion,
+      }}
     >
       {children}
     </GlobalContext.Provider>
