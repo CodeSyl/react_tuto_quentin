@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     console.log("init");
+    setNewList(["test", "test1", "test2", "test3", "test4"]);
   }, []);
 
   useEffect(() => {
@@ -34,9 +35,15 @@ function App() {
     //contentList.splice(index, 1);
 
     setNewList((prevState) => {
-      let contentList: string[] = [...prevState];
-      contentList.splice(index, 1);
-      return contentList;
+      const filter: string[] = prevState.filter(
+        (element, filterIndex) => index !== filterIndex
+      );
+      console.log(filter);
+      return filter;
+
+      // let contentList: string[] = [...prevState];
+      // contentList.splice(index, 1);
+      // return contentList;
     });
   };
 
