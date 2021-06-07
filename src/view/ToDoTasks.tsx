@@ -1,19 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import { IconButton } from "@fluentui/react";
 import { Text, ITextProps } from "@fluentui/react/lib/Text";
-import { GlobalContext } from "./infrastructure/GlobalContext";
+import { GlobalContext } from "../infrastructure/GlobalContext";
 
 export interface IToDoTasks {
   index: number;
   elementValue: string;
-  deleteElement(index: number): void;
 }
 
-const ToDoTasks = ({
-  index,
-  elementValue,
-  deleteElement,
-}: IToDoTasks): JSX.Element => {
+const ToDoTasks = ({ index, elementValue }: IToDoTasks): JSX.Element => {
   const { confirmDeletion }: any = useContext(GlobalContext);
 
   useEffect(() => {
@@ -21,7 +16,7 @@ const ToDoTasks = ({
   }, []);
 
   return (
-    <div key={index}>
+    <div>
       <Text variant="medium">{elementValue}</Text>
       <IconButton
         iconProps={{ iconName: "Cancel" }}

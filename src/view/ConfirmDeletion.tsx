@@ -5,7 +5,7 @@ import { hiddenContentStyle, mergeStyles } from "@fluentui/react/lib/Styling";
 import { Toggle } from "@fluentui/react/lib/Toggle";
 import { ContextualMenu } from "@fluentui/react/lib/ContextualMenu";
 import { useId, useBoolean } from "@fluentui/react-hooks";
-import { GlobalContext } from "./infrastructure/GlobalContext";
+import { GlobalContext } from "../infrastructure/GlobalContext";
 
 const dialogStyles = { main: { maxWidth: 450 } };
 

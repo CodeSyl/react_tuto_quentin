@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 
 export const GlobalContext = createContext({});
 
 export const GlobalProvider = ({ children }: any) => {
+  const { getValues } = useFormContext();
   const [newElement, setNewElement] = useState<string>("");
   const [newList, setNewList] = useState<string[]>([]);
   const [hiddenDialog, setHiddenDialog] = useState<boolean>(true);
@@ -56,6 +58,10 @@ export const GlobalProvider = ({ children }: any) => {
     setSelectedElementToDelete(undefined);
   };
 
+  const onSave = () => {
+    console.log(getValues(), "form values");
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -68,6 +74,7 @@ export const GlobalProvider = ({ children }: any) => {
         confirmDeletion,
         selectedElementToDelete,
         cancelDeletion,
+        onSave,
       }}
     >
       {children}

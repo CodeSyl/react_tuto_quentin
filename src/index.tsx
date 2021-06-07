@@ -1,19 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import TopBar from "./TopBar";
+import App from "./view/App/App";
 import reportWebVitals from "./reportWebVitals";
-import { GlobalProvider } from "./infrastructure/GlobalContext";
-import Footer from "./Footer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalProvider>
-      <TopBar />
-      <App />
-      <Footer />
-    </GlobalProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

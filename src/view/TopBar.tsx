@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "./infrastructure/GlobalContext";
+import { GlobalContext } from "../infrastructure/GlobalContext";
 
 const TopBar = () => {
   const { newList }: any = useContext(GlobalContext);
