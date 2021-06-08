@@ -1,15 +1,17 @@
 import { DefaultButton } from "@fluentui/react";
 import React, { useContext } from "react";
+import { useFormContext } from "react-hook-form";
 import { GlobalContext } from "../infrastructure/GlobalContext";
 
 const SaveButton = () => {
-  const { onSave }: any = useContext(GlobalContext);
+  const { handleSubmit } = useFormContext();
+  const { onSave, onError }: any = useContext(GlobalContext);
 
   return (
     <DefaultButton
       className="test"
       text="Save tasks to file"
-      onClick={onSave}
+      onClick={handleSubmit(onSave, onError)}
     />
   );
 };

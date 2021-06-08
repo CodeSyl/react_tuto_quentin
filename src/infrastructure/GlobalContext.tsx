@@ -58,8 +58,12 @@ export const GlobalProvider = ({ children }: any) => {
     setSelectedElementToDelete(undefined);
   };
 
-  const onSave = () => {
-    console.log(getValues(), "form values");
+  const onSave = (data: any) => {
+    console.log(data, "form values");
+  };
+
+  const onError = (error: any) => {
+    console.log(error);
   };
 
   return (
@@ -75,6 +79,7 @@ export const GlobalProvider = ({ children }: any) => {
         selectedElementToDelete,
         cancelDeletion,
         onSave,
+        onError,
       }}
     >
       {children}
